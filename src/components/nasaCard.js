@@ -6,7 +6,7 @@ export default function NasaCard({ title, date, explanation, url }) {
       <h2>{title}</h2>
       <p>{date}</p>
       <p>{explanation}</p>
-      <img src={url} />
+      <img src={url} style={{ maxWidth: "500px" }} />
     </div>
   );
 }

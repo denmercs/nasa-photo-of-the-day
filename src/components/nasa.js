@@ -3,7 +3,7 @@ import axios from "axios";
 import { directive } from "@babel/types";
 import NasaCard from "../components/nasaCard";
 
-export default function Nasa() {
+export default function Nasa({ limit }) {
   const [nasaData, setNasaData] = useState([]);
 
   useEffect(() => {
@@ -16,18 +16,20 @@ export default function Nasa() {
         const datas = res.data;
         setNasaData(datas);
       })
-      .catch(res => {});
+      .catch(res => {
+        console.log("Error", res);
+      });
   }, []);
 
   return (
     <div className="container">
       <NasaCard
-        limit={10}
         title={nasaData.title}
         date={nasaData.date}
         explanation={nasaData.explanation}
-        imgUrl={nasaData.url}
+        url={nasaData.url}
       />
+      {console.log("URL", nasaData.url)}
     </div>
   );
 }

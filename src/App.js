@@ -5,7 +5,7 @@ import Nasa from "./components/nasa";
 function App() {
   return (
     <div className="App">
-      <Nasa limit={5} />
+      <Nasa limit={10} />
     </div>
   );
 }
