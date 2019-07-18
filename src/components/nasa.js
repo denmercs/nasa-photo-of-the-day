@@ -3,7 +3,7 @@ import axios from "axios";
 import { directive } from "@babel/types";
 import NasaCard from "../components/nasaCard";
 
-export default function Nasa({ limit }) {
+export default function Nasa() {
   const [nasaData, setNasaData] = useState([]);
 
   useEffect(() => {
@@ -11,11 +11,7 @@ export default function Nasa({ limit }) {
       .get(
         `https://api.nasa.gov/planetary/apod?api_key=CHAnsilU4dWhsQFnm5xTFnhc877f76OTKtPdcIFS&date=2012-03-14`
       )
-      .then(res => {
-        console.log("RESPONSE", res);
-        const datas = res.data;
-        setNasaData(datas);
-      })
+      .then(res => setNasaData(res.data))
       .catch(res => {
         console.log("Error", res);
       });
@@ -26,10 +22,9 @@ export default function Nasa({ limit }) {
       <NasaCard
         title={nasaData.title}
         date={nasaData.date}
-        explanation={nasaData.explanation}
         url={nasaData.url}
+        explanation={nasaData.explanation}
       />
-      {console.log("URL", nasaData.url)}
     </div>
   );
 }

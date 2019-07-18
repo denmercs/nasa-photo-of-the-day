@@ -5,7 +5,13 @@ import Nasa from "./components/nasa";
 function App() {
   return (
     <div className="App">
-      <Nasa limit={10} />
+      <div className="proTitle">
+        <h1>Photo of the Day</h1>
+      </div>
+
+      <div className="photoCard">
+        <Nasa />
+      </div>
     </div>
   );
 }
